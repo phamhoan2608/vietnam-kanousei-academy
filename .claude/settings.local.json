@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next *)",
+      "Bash(npm run *)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":3001 \")",
+      "Bash(findstr LISTENING)",
+      "PowerShell(Get-Process -Id 23280)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3001 | ForEach-Object { Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue | Select-Object Name, Id })",
+      "Bash(ping -n 4 127.0.0.1)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3005\" -UseBasicParsing)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3000 | ForEach-Object { Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue | Select-Object Name, Id, @{Name='Port';Expression={3000}} })",
+      "PowerShell(Get-Process node -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)"
+    ]
+  }
+}

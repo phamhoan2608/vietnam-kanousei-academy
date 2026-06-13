@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
@@ -10,9 +11,15 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-roboto)"],
+        sans: ["var(--font-roboto)", "sans-serif"],
       },
       colors: {
+        brand: {
+          green: "#9DBB82",
+          pink: "#FFB8CF",
+          navy: "#1A3A2A",
+          light: "#F0F7EB",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -63,16 +70,16 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
-        blink: "blink 1s steps(2, start) infinite", // Animation tên 'blink'
+        blink: "blink 1.2s steps(2, start) infinite",
       },
       keyframes: {
         blink: {
-          "0%, 100%": { opacity: "1" }, // Hiển thị ở khung hình đầu và cuối
-          "50%": { opacity: "0" }, // Ẩn ở giữa
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
         },
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 };
 export default config;

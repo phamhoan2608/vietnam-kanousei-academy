@@ -1,65 +1,42 @@
 "use client";
 
 import * as React from "react";
-
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
 export type ITeacher = {
+  id: string;
   imageURL: string;
   nameTeacher: string;
   introduction: string;
 };
 
-export const teacherList: ITeacher[] = [
-  {
-    imageURL: "/images/Teacher1.png",
-    nameTeacher: "MASUDA KATSUTOSHI",
-    introduction:
-      "Hiệu trưởng Học viện Tiềm Năng Nhật Bản và là một nhà tư vấn tâm  lý Não bộ. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và tư vấn tâm lý cho người Việt Nam sinh sống tại Nhật Bản.",
-  },
-  {
-    imageURL: "/images/Teacher2.png",
-    nameTeacher: "NGUYỄN HÀ ANH",
-    introduction:
-      "Đại diện Học viện Tiềm Năng Việt Nam. Giảng viên được công nhận bởi học viện Tiềm năng Nhật Bản. Ngoài ra còn là một thông dịch viên hoạt động trên nhiều lĩnh vực làm cầu nối trong các hoạt động ngoại giao giữa Việt Nam và Nhật Bản.",
-  },
-  {
-    imageURL: "/images/Teacher3.png",
-    nameTeacher: "NAM ORICA",
-    introduction:
-      "Giảng viên được công nhận bởi học viện Tiềm Năng Nhật Bản. Đã và đang hoạt động trong lĩnh vực phát triển tiềm năng con người.",
-  },
-  {
-    imageURL: "/images/Teacher4.png",
-    nameTeacher: "NGUYỄN THU TRANG",
-    introduction:
-      "Giảng viên được công nhận bởi học viện Tiềm Năng Nhật Bản và là nhà tư vấn tâm lý Não bộ. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và tư vấn tâm lý cho người Việt Nam sinh sống tại Nhật Bản.",
-  },
-];
-
-export function CarouselDemo() {
-  const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+export function CarouselDemo({ teachers }: { teachers: ITeacher[] }) {
+  const plugin = React.useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
   return (
     <Carousel
-      plugins={[
-        Autoplay({
-          delay: 3000,
-        }),
-      ]}
+      plugins={[plugin.current]}
       className="w-full max-w-xs"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
-        {teacherList.map((item: ITeacher, index) => (
-          <CarouselItem key={index}>
-            <div className="max-w-[400px] flex flex-col gap-8 items-center">
-              <Image src={item.imageURL} width={400} height={400} className="w-full object-cover" alt="Brain" />
-              <p className="text-[26px] font-bold">{item.nameTeacher}</p>
-              <p className="text-center">{item.introduction}</p>
+        {teachers.map((item) => (
+          <CarouselItem key={item.id}>
+            <div className="flex flex-col gap-5 items-center p-2">
+              <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-[#9DBB82]/20 ring-offset-2">
+                <Image
+                  src={item.imageURL}
+                  width={200}
+                  height={200}
+                  className="w-full h-full object-cover"
+                  alt={item.nameTeacher}
+                />
+              </div>
+              <p className="text-lg font-black text-center text-[#1A3A2A]">{item.nameTeacher}</p>
+              <p className="text-center text-sm text-gray-500 leading-relaxed">{item.introduction}</p>
             </div>
           </CarouselItem>
         ))}

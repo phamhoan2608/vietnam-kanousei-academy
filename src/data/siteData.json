@@ -1,0 +1,29 @@
+{
+  "registerUrl": "https://docs.google.com/forms/d/e/1FAIpQLSelEWeBl-qLQdP2i52akwBp3z2ZXC6VEOkefcm9GtFhYVNGzQ/viewform",
+  "teachers": [
+    {
+      "id": "1",
+      "imageURL": "/images/Teacher1.png",
+      "nameTeacher": "MASUDA KATSUTOSHI",
+      "introduction": "Hiệu trưởng Học viện Tiềm Năng Nhật Bản và là một nhà tư vấn tâm lý Não bộ. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và tư vấn tâm lý cho người Việt Nam sinh sống tại Nhật Bản."
+    },
+    {
+      "id": "2",
+      "imageURL": "/images/Teacher2.png",
+      "nameTeacher": "NGUYỄN HÀ ANH",
+      "introduction": "Đại diện Học viện Tiềm Năng Việt Nam. Giảng viên được công nhận bởi học viện Tiềm năng Nhật Bản. Ngoài ra còn là một thông dịch viên hoạt động trên nhiều lĩnh vực làm cầu nối trong các hoạt động ngoại giao giữa Việt Nam và Nhật Bản."
+    },
+    {
+      "id": "3",
+      "imageURL": "/images/Teacher3.png",
+      "nameTeacher": "NAM ORICA",
+      "introduction": "Giảng viên được công nhận bởi học viện Tiềm Năng Nhật Bản. Đã và đang hoạt động trong lĩnh vực phát triển tiềm năng con người."
+    },
+    {
+      "id": "4",
+      "imageURL": "/images/Teacher4.png",
+      "nameTeacher": "NGUYỄN THU TRANG",
+      "introduction": "Giảng viên được công nhận bởi học viện Tiềm Năng Nhật Bản và là nhà tư vấn tâm lý Não bộ. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và tư vấn tâm lý cho người Việt Nam sinh sống tại Nhật Bản."
+    }
+  ]
+}
