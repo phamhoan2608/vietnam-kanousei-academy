@@ -4,7 +4,7 @@ import { readData, writeData, SiteData } from "@/lib/data";
 import { AUTH_COOKIE, AUTH_TOKEN } from "@/lib/auth";
 
 export async function GET() {
-  const data = readData();
+  const data = await readData();
   return NextResponse.json(data);
 }
 
@@ -15,6 +15,6 @@ export async function POST(request: NextRequest) {
   }
 
   const body: SiteData = await request.json();
-  writeData(body);
+  await writeData(body);
   return NextResponse.json({ success: true });
 }

@@ -1,7 +1,4 @@
-import fs from "fs";
-import path from "path";
-
-const DATA_FILE = path.join(process.cwd(), "src/data/siteData.json");
+import { supabase } from "./supabase";
 
 export interface Teacher {
   id: string;
@@ -15,11 +12,24 @@ export interface SiteData {
   teachers: Teacher[];
 }
 
-export function readData(): SiteData {
-  const raw = fs.readFileSync(DATA_FILE, "utf-8");
-  return JSON.parse(raw) as SiteData;
+const FALLBACK: SiteData = {
+  registerUrl: "",
+  teachers: [],
+};
+
+export async function readData(): Promise<SiteData> {
+  const { data, error } = await supabase
+    .from("site_data")
+    .select("data")
+    .eq("id", 1)
+    .single();
+
+  if (error || !data) return FALLBACK;
+  return data.data as SiteData;
 }
 
-export function writeData(data: SiteData): void {
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
+export async function writeData(siteData: SiteData): Promise<void> {
+  await supabase
+    .from("site_data")
+    .upsert({ id: 1, data: siteData });
 }
