@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { ADMIN_USERNAME, ADMIN_PASSWORD, AUTH_COOKIE, AUTH_TOKEN } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
   const { username, password } = await request.json();
 
@@ -10,7 +12,8 @@ export async function POST(request: NextRequest) {
     res.cookies.set(AUTH_COOKIE, AUTH_TOKEN, {
       httpOnly: true,
       sameSite: "lax",
-      maxAge: 60 * 60,
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 60 * 60 * 24 * 7,
       path: "/",
     });
     return res;
