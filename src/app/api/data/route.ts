@@ -3,6 +3,8 @@ import type { NextRequest } from "next/server";
 import { readData, writeData, SiteData } from "@/lib/data";
 import { AUTH_COOKIE, AUTH_TOKEN } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const data = await readData();
   return NextResponse.json(data);

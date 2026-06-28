@@ -1,4 +1,4 @@
-import { supabase } from "./supabase";
+import { getSupabase } from "./supabase";
 
 export interface Teacher {
   id: string;
@@ -18,7 +18,7 @@ const FALLBACK: SiteData = {
 };
 
 export async function readData(): Promise<SiteData> {
-  const { data, error } = await supabase
+  const { data, error } = await getSupabase()
     .from("site_data")
     .select("data")
     .eq("id", 1)
@@ -29,7 +29,7 @@ export async function readData(): Promise<SiteData> {
 }
 
 export async function writeData(siteData: SiteData): Promise<void> {
-  await supabase
+  await getSupabase()
     .from("site_data")
     .upsert({ id: 1, data: siteData });
 }
