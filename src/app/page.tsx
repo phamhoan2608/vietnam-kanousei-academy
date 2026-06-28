@@ -12,19 +12,37 @@ const DEFAULT_REGISTER_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSelEWeBl-qLQdP2i52akwBp3z2ZXC6VEOkefcm9GtFhYVNGzQ/viewform";
 
 const STATS = [
-  { number: "30,000+", label: "Học viên tư vấn", Icon: Users },
-  { number: "25+", label: "Năm kinh nghiệm", Icon: Clock },
-  { number: "3+", label: "Năm tại Việt Nam", Icon: Award },
-  { number: "4", label: "Giảng viên chuyên gia", Icon: Brain },
+  { number: "30,000+", label: "Học viên được tư vấn", Icon: Users },
+  { number: "25", label: "Năm kinh nghiệm tư vấn", Icon: Clock },
+  { number: "30+", label: "Năm nghiên cứu não bộ", Icon: Award },
+  { number: "7", label: "Giảng viên chuyên gia", Icon: Brain },
 ];
 
 const WHY_US = [
-  { title: "Khoa học thực chứng", desc: "Tất cả phương pháp đều dựa trên khoa học não bộ và tâm lý học, không phải lý thuyết mơ hồ hay cảm tính." },
-  { title: "25 năm kinh nghiệm", desc: "Đã tư vấn cho hơn 30,000 người, với bề dày kinh nghiệm từ Nhật Bản được mang đến Việt Nam." },
-  { title: "Phù hợp người Việt Nam", desc: "Chương trình thiết kế riêng cho người Việt Nam, phù hợp với văn hóa và tư duy người Việt." },
-  { title: "Giảng viên chuyên nghiệp", desc: "Đội ngũ được công nhận bởi Học viện Tiềm Năng Nhật Bản, giàu kinh nghiệm thực chiến." },
-  { title: "Trải nghiệm thực tiễn", desc: "Không chỉ học lý thuyết mà còn trải nghiệm ở cấp độ giác quan để tạo ra thay đổi thực sự từ bên trong." },
-  { title: "Kết quả rõ ràng", desc: "Mang lại câu trả lời logic, có thể kiểm chứng — không mơ hồ, không thiếu cơ sở khoa học." },
+  {
+    title: "Khoa học thực chứng",
+    desc: "Tất cả phương pháp đều dựa trên khoa học não bộ và tâm lý học, không phải lý thuyết mơ hồ hay cảm tính.",
+  },
+  {
+    title: "25 năm kinh nghiệm",
+    desc: "Đã tư vấn cho hơn 30,000 người, với bề dày kinh nghiệm từ Nhật Bản được mang đến Việt Nam.",
+  },
+  {
+    title: "Phù hợp người Việt Nam",
+    desc: "Chương trình thiết kế riêng cho người Việt Nam, phù hợp với văn hóa và tư duy người Việt.",
+  },
+  {
+    title: "Giảng viên chuyên nghiệp",
+    desc: "Đội ngũ được công nhận bởi Học viện Tiềm Năng Nhật Bản, giàu kinh nghiệm thực chiến.",
+  },
+  {
+    title: "Trải nghiệm thực tiễn",
+    desc: "Không chỉ học lý thuyết mà còn trải nghiệm ở cấp độ giác quan để tạo ra thay đổi thực sự từ bên trong.",
+  },
+  {
+    title: "Kết quả rõ ràng",
+    desc: "Mang lại câu trả lời logic, có thể kiểm chứng — không mơ hồ, không thiếu cơ sở khoa học.",
+  },
 ];
 
 const PROGRAMS = [
@@ -50,36 +68,64 @@ const PROGRAMS = [
       "Tháo gỡ phiền não và thay đổi mindset",
     ],
   },
+  {
+    img: null,
+    title: "DOOGA",
+    sub: "Chương trình tự rèn luyện não bộ",
+    desc: "Chương trình đào tạo bao gồm tổ hợp các video bài giảng về lý thuyết và phương pháp ứng dụng cơ chế tiềm năng của não bộ vào các hoạt động sinh hoạt hàng ngày để phát triển bản thân, cải thiện mối quan hệ, đạt được mục tiêu.",
+    items: ["Học tập mọi nơi mọi lúc", "Nội dung mới cập nhật liên tục", "Dễ dàng áp dụng"],
+  },
 ];
 
 const DEFAULT_TEACHERS: ITeacher[] = [
   {
     id: "1",
-    imageURL: "/images/Teacher1.png",
+    imageURL: "/images/MASUDA_KATSUTOSHI.png",
     nameTeacher: "MASUDA KATSUTOSHI",
     introduction:
       "Hiệu trưởng Học viện Tiềm Năng Nhật Bản và là một nhà tư vấn tâm lý Não bộ. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và tư vấn tâm lý cho người Việt Nam sinh sống tại Nhật Bản.",
   },
   {
     id: "2",
-    imageURL: "/images/Teacher2.png",
+    imageURL: "/images/NGUYEN_HA_ANH.png",
     nameTeacher: "NGUYỄN HÀ ANH",
     introduction:
       "Đại diện Học viện Tiềm Năng Việt Nam. Giảng viên được công nhận bởi học viện Tiềm năng Nhật Bản. Ngoài ra còn là một thông dịch viên hoạt động trên nhiều lĩnh vực làm cầu nối trong các hoạt động ngoại giao giữa Việt Nam và Nhật Bản.",
   },
   {
-    id: "3",
-    imageURL: "/images/Teacher3.png",
-    nameTeacher: "NAM ORICA",
-    introduction:
-      "Giảng viên được công nhận bởi học viện Tiềm Năng Nhật Bản. Đã và đang hoạt động trong lĩnh vực phát triển tiềm năng con người.",
-  },
-  {
     id: "4",
-    imageURL: "/images/Teacher4.png",
+    imageURL: "/images/NGUYEN_THU_TRANG.JPEG",
     nameTeacher: "NGUYỄN THU TRANG",
     introduction:
       "Giảng viên được công nhận bởi học viện Tiềm Năng Nhật Bản và là nhà tư vấn tâm lý Não bộ. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và tư vấn tâm lý cho người Việt Nam sinh sống tại Nhật Bản.",
+  },
+  {
+    id: "5",
+    imageURL: "/images/HOANG_THI_PHUONG_LINK.JPG",
+    nameTeacher: "HOÀNG THỊ PHƯƠNG LINH",
+    introduction:
+      "Giảng viên chính thức của Học viện Tiềm Năng Việt Nam, Chuyên viên Trải nghiệm Nhân viên tại FPT Software và Life Coach. Đã và đang ứng dụng kiến thức, phương pháp của Học viện trong các hoạt động đào tạo doanh nghiệp và đồng hành cùng các cá nhân trên hành trình phát triển và tối ưu hoá tiềm năng chính mình.",
+  },
+  {
+    id: "6",
+    imageURL: "/images/MIMI.JPG",
+    nameTeacher: "MIMI",
+    introduction:
+      "Giảng viên được công nhận bởi Học viện Tiềm năng Nhật Bản và là nhà phân tích não bộ. Đã và đang tiến hành tư vấn tâm lý, hỗ trợ phát triển bản thân và định hướng nghề nghiệp cho học sinh và thanh niên Việt Nam.",
+  },
+  {
+    id: "7",
+    imageURL: "/images/NGUYEN_THI_HONG_LING.JPG",
+    nameTeacher: "NGUYỄN THỊ HỒNG LINH",
+    introduction:
+      "Giảng viên được công nhận bởi Học viện Tiềm Năng Nhật Bản. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và giảng dạy tiếng Nhật cho người Việt Nam sinh sống tại Nhật Bản. Có nhiều năm học tập, làm việc trong môi trường Nhật Bản cùng kinh nghiệm trong các lĩnh vực giáo dục, đào tạo và kinh doanh tại doanh nghiệp Nhật Bản.",
+  },
+  {
+    id: "8",
+    imageURL: "/images/COACH_HIEN_BUI.JPEG",
+    nameTeacher: "COACH HIÊN BÙI",
+    introduction:
+      "Giảng viên chính thức của Học viện Tiềm Năng Việt Nam, Nhà khai vấn chuyên nghiệp (Life Coach). Đã và đang ứng dụng kiến thức, phương pháp của Học viện để đồng hành cùng mỗi cá nhân trên hành trình chuyển hóa nhận thức, khai mở nội lực và tối ưu hóa tiềm năng, giúp họ tạo dựng cuộc sống và sự nghiệp đúng với giá trị của chính mình.",
   },
 ];
 
@@ -111,7 +157,6 @@ export default function Home() {
 
         <div className="relative z-10 w-full px-5 sm:px-10 md:px-16 lg:px-20 py-12 md:py-20">
           <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-16 items-center">
-
             {/* Left: copy */}
             <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-left">
               <span className="inline-flex justify-center lg:justify-start">
@@ -121,8 +166,10 @@ export default function Home() {
               </span>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-[#1A3A2A] leading-[1.1] tracking-tight">
-                Thấu hiểu<br />
-                bản thân<br />
+                Thấu hiểu
+                <br />
+                bản thân
+                <br />
                 là thấu hiểu{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10">bộ não</span>
@@ -131,7 +178,8 @@ export default function Home() {
               </h1>
 
               <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-md mx-auto lg:mx-0">
-                Khoa học thần kinh đã chứng minh mọi cảm xúc, suy nghĩ và hành động của bạn đều xuất phát từ não bộ. Hiểu não — thay đổi cuộc đời.
+                Khoa học thần kinh đã chứng minh mọi cảm xúc, suy nghĩ và hành động của bạn đều xuất phát từ não bộ.
+                Hiểu não — thay đổi cuộc đời.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -203,7 +251,8 @@ export default function Home() {
           <div className="text-center mb-10 md:mb-14">
             <span className="text-xs font-bold text-[#9DBB82] uppercase tracking-[0.2em]">Sứ mệnh của chúng tôi</span>
             <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-black text-[#1A3A2A] leading-tight">
-              Tất cả những gì xảy ra<br className="hidden sm:block" />
+              Tất cả những gì xảy ra
+              <br className="hidden sm:block" />
               trong cuộc đời bạn đều do{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-[#1A3A2A]">BỘ NÃO</span>
@@ -216,24 +265,27 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
               <p className="text-gray-700 text-base leading-relaxed">
-                Nhiều người đánh đồng những trải nghiệm trong quá khứ với bản thân con người họ. Chúng ta tưởng tượng tương lai như một phần mở rộng của quá khứ — nhưng thực ra não bộ có những khả năng vượt xa những gì ta đã trải nghiệm.
+                Nhiều người đánh đồng những trải nghiệm trong quá khứ với bản thân con người họ. Chúng ta tưởng tượng
+                tương lai như một phần mở rộng của quá khứ — nhưng thực ra não bộ có những khả năng vượt xa những gì ta
+                đã trải nghiệm.
               </p>
             </div>
             <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
               <p className="text-gray-700 text-base leading-relaxed">
-                Lo lắng, căng thẳng, sức khỏe, tình yêu, hôn nhân, gia đình, công việc, kỹ năng tương lai — tất cả đều phản ánh cách bạn đang sử dụng não bộ trong cuộc sống hiện tại.
+                Lo lắng, căng thẳng, sức khỏe, tình yêu, hôn nhân, gia đình, công việc, kỹ năng tương lai — tất cả đều
+                phản ánh cách bạn đang sử dụng não bộ trong cuộc sống hiện tại.
               </p>
             </div>
             <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
               <p className="text-gray-700 text-base leading-relaxed">
-                Nếu bạn tiếp tục dùng não bộ theo cách cũ, bạn sẽ chỉ lặp lại quá khứ. Chỉ khi khai thác đúng tiềm năng não bộ, bạn mới tạo ra được tương lai như mình mong muốn.
+                Nếu bạn tiếp tục dùng não bộ theo cách cũ, bạn sẽ chỉ lặp lại quá khứ. Chỉ khi khai thác đúng tiềm năng
+                não bộ, bạn mới tạo ra được tương lai như mình mong muốn.
               </p>
             </div>
             <div className="bg-[#9DBB82]/10 rounded-2xl p-6 md:p-8 border border-[#9DBB82]/20">
               <p className="text-[#1A3A2A] text-base leading-relaxed font-medium">
                 Chúng tôi nghiên cứu cách sử dụng não bộ trong cuộc sống thực và hệ thống hóa{" "}
-                <strong>&quot;Chương trình hỗ trợ phát triển bản thân&quot;</strong>{" "}
-                — đó là Lý thuyết Noutaisei ©.
+                <strong>&quot;Chương trình hỗ trợ phát triển bản thân&quot;</strong> — đó là Lý thuyết Noutaisei ©.
               </p>
             </div>
           </div>
@@ -241,9 +293,11 @@ export default function Home() {
       </section>
 
       {/* ── NOUTAISEI THEORY ────────────────────────── */}
-      <section id="theory" className="py-16 md:py-24 px-5 sm:px-10 md:px-16 lg:px-20 bg-gradient-to-br from-[#fff5f8] via-[#FFB8CF]/20 to-white">
+      <section
+        id="theory"
+        className="py-16 md:py-24 px-5 sm:px-10 md:px-16 lg:px-20 bg-gradient-to-br from-[#fff5f8] via-[#FFB8CF]/20 to-white"
+      >
         <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row gap-10 lg:gap-16 items-center">
-
           {/* Text */}
           <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-left">
             <span className="inline-flex justify-center lg:justify-start">
@@ -253,7 +307,8 @@ export default function Home() {
             </span>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1A3A2A] leading-tight">
-              Lý thuyết<br />
+              Lý thuyết
+              <br />
               <span className="text-[#9DBB82]">Noutaisei ©</span>
               <br />
               <span className="text-2xl sm:text-3xl font-bold text-gray-500">Phát triển trí não</span>
@@ -261,15 +316,16 @@ export default function Home() {
 
             <div className="flex flex-col gap-4 text-gray-700 text-base leading-relaxed">
               <p>
-                Thấu hiểu bản thân là thấu hiểu bộ não. Lý thuyết Noutaisei © hệ thống hóa các lý thuyết và phương pháp giúp thay đổi cuộc sống tốt đẹp hơn thông qua hiểu và sử dụng não bộ.
+                Thấu hiểu bản thân là thấu hiểu bộ não. Lý thuyết Noutaisei © hệ thống hóa các lý thuyết và phương pháp
+                giúp thay đổi cuộc sống tốt đẹp hơn thông qua hiểu và sử dụng não bộ.
               </p>
               <p>
-                Trong 25 năm qua, chúng tôi đã tư vấn cho hơn{" "}
-                <strong className="text-[#1A3A2A]">30,000 người</strong>{" "}
+                Trong 25 năm qua, chúng tôi đã tư vấn cho hơn <strong className="text-[#1A3A2A]">30,000 người</strong>{" "}
                 về các vấn đề tinh thần, sức khỏe, công việc, hôn nhân và nuôi dạy con cái.
               </p>
               <p>
-                Lý thuyết kết hợp triết học, tâm lý học, sinh lý học và khoa học não bộ để cung cấp câu trả lời rõ ràng, có thể kiểm chứng — không mơ hồ.
+                Lý thuyết kết hợp triết học, tâm lý học, sinh lý học và khoa học não bộ để cung cấp câu trả lời rõ ràng,
+                có thể kiểm chứng — không mơ hồ.
               </p>
             </div>
 
@@ -315,13 +371,20 @@ export default function Home() {
                 className="flex flex-col rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 bg-white group"
               >
                 <div className="overflow-hidden">
-                  <Image
-                    src={card.img}
-                    width={600}
-                    height={360}
-                    className="w-full object-cover h-48 sm:h-56 md:h-60 group-hover:scale-105 transition-transform duration-500"
-                    alt={card.title}
-                  />
+                  {card.img ? (
+                    <Image
+                      src={card.img}
+                      width={600}
+                      height={360}
+                      className="w-full object-cover object-top h-48 sm:h-56 md:h-60 group-hover:scale-105 transition-transform duration-500"
+                      alt={card.title}
+                    />
+                  ) : (
+                    <div className="w-full h-48 sm:h-56 md:h-60 bg-gradient-to-br from-[#1A3A2A] to-[#2a5a42] flex flex-col items-center justify-center gap-3">
+                      <Brain size={40} className="text-[#9DBB82]/60" />
+                      <span className="text-[#9DBB82] font-bold text-sm tracking-widest uppercase">Coming Soon</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 md:p-8 flex flex-col gap-5 flex-1">
                   <div>
@@ -401,7 +464,7 @@ export default function Home() {
                     src={item.imageURL}
                     width={200}
                     height={200}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                     alt={item.nameTeacher}
                   />
                 </div>
@@ -416,14 +479,18 @@ export default function Home() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────── */}
-      <section id="cta" className="py-20 md:py-28 px-5 sm:px-10 md:px-16 lg:px-20 bg-gradient-to-br from-[#1A3A2A] via-[#1f4a35] to-[#2a5a42] text-white">
+      <section
+        id="cta"
+        className="py-20 md:py-28 px-5 sm:px-10 md:px-16 lg:px-20 bg-gradient-to-br from-[#1A3A2A] via-[#1f4a35] to-[#2a5a42] text-white"
+      >
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 md:gap-8">
           <div className="w-16 h-16 bg-[#9DBB82]/20 rounded-2xl flex items-center justify-center ring-1 ring-[#9DBB82]/30">
             <Brain size={28} className="text-[#9DBB82]" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight">
-            Bắt đầu hành trình<br />
+            Bắt đầu hành trình
+            <br />
             khám phá bộ não của bạn
           </h2>
 
@@ -439,11 +506,17 @@ export default function Home() {
           </button>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 text-gray-300 text-sm pt-2">
-            <Link href="tel:0366816416" className="flex gap-2 items-center justify-center hover:text-[#9DBB82] transition-colors">
+            <Link
+              href="tel:0366816416"
+              className="flex gap-2 items-center justify-center hover:text-[#9DBB82] transition-colors"
+            >
               <Phone size={16} />
               0366 816 416
             </Link>
-            <Link href="mailto:info@kanousei.vn" className="flex gap-2 items-center justify-center hover:text-[#9DBB82] transition-colors">
+            <Link
+              href="mailto:info@kanousei.vn"
+              className="flex gap-2 items-center justify-center hover:text-[#9DBB82] transition-colors"
+            >
               <Mail size={16} />
               info@kanousei.vn
             </Link>

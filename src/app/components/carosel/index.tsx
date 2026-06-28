@@ -31,7 +31,7 @@ export function CarouselDemo({ teachers }: { teachers: ITeacher[] }) {
                   src={item.imageURL}
                   width={200}
                   height={200}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   alt={item.nameTeacher}
                 />
               </div>

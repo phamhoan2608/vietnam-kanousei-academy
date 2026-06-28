@@ -3,27 +3,45 @@
   "teachers": [
     {
       "id": "1",
-      "imageURL": "/images/Teacher1.png",
+      "imageURL": "/images/MASUDA_KATSUTOSHI.png",
       "nameTeacher": "MASUDA KATSUTOSHI",
       "introduction": "Hiệu trưởng Học viện Tiềm Năng Nhật Bản và là một nhà tư vấn tâm lý Não bộ. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và tư vấn tâm lý cho người Việt Nam sinh sống tại Nhật Bản."
     },
     {
       "id": "2",
-      "imageURL": "/images/Teacher2.png",
+      "imageURL": "/images/NGUYEN_HA_ANH.png",
       "nameTeacher": "NGUYỄN HÀ ANH",
       "introduction": "Đại diện Học viện Tiềm Năng Việt Nam. Giảng viên được công nhận bởi học viện Tiềm năng Nhật Bản. Ngoài ra còn là một thông dịch viên hoạt động trên nhiều lĩnh vực làm cầu nối trong các hoạt động ngoại giao giữa Việt Nam và Nhật Bản."
     },
     {
-      "id": "3",
-      "imageURL": "/images/Teacher3.png",
-      "nameTeacher": "NAM ORICA",
-      "introduction": "Giảng viên được công nhận bởi học viện Tiềm Năng Nhật Bản. Đã và đang hoạt động trong lĩnh vực phát triển tiềm năng con người."
-    },
-    {
       "id": "4",
-      "imageURL": "/images/Teacher4.png",
+      "imageURL": "/images/NGUYEN_THU_TRANG.JPEG",
       "nameTeacher": "NGUYỄN THU TRANG",
       "introduction": "Giảng viên được công nhận bởi học viện Tiềm Năng Nhật Bản và là nhà tư vấn tâm lý Não bộ. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và tư vấn tâm lý cho người Việt Nam sinh sống tại Nhật Bản."
+    },
+    {
+      "id": "5",
+      "imageURL": "/images/HOANG_THI_PHUONG_LINK.JPG",
+      "nameTeacher": "HOÀNG THỊ PHƯƠNG LINH",
+      "introduction": "Giảng viên chính thức của Học viện Tiềm Năng Việt Nam, Chuyên viên Trải nghiệm Nhân viên tại FPT Software và Life Coach. Đã và đang ứng dụng kiến thức, phương pháp của Học viện trong các hoạt động đào tạo doanh nghiệp và đồng hành cùng các cá nhân trên hành trình phát triển và tối ưu hoá tiềm năng chính mình."
+    },
+    {
+      "id": "6",
+      "imageURL": "/images/MIMI.JPG",
+      "nameTeacher": "MIMI",
+      "introduction": "Giảng viên được công nhận bởi Học viện Tiềm năng Nhật Bản và là nhà phân tích não bộ. Đã và đang tiến hành tư vấn tâm lý, hỗ trợ phát triển bản thân và định hướng nghề nghiệp cho học sinh và thanh niên Việt Nam."
+    },
+    {
+      "id": "7",
+      "imageURL": "/images/NGUYEN_THI_HONG_LING.JPG",
+      "nameTeacher": "NGUYỄN THỊ HỒNG LINH",
+      "introduction": "Giảng viên được công nhận bởi Học viện Tiềm Năng Nhật Bản. Đã và đang tiến hành các hoạt động hỗ trợ phát triển bản thân và giảng dạy tiếng Nhật cho người Việt Nam sinh sống tại Nhật Bản. Có nhiều năm học tập, làm việc trong môi trường Nhật Bản cùng kinh nghiệm trong các lĩnh vực giáo dục, đào tạo và kinh doanh tại doanh nghiệp Nhật Bản."
+    },
+    {
+      "id": "8",
+      "imageURL": "/images/COACH_HIEN_BUI.JPEG",
+      "nameTeacher": "COACH HIÊN BÙI",
+      "introduction": "Giảng viên chính thức của Học viện Tiềm Năng Việt Nam, Nhà khai vấn chuyên nghiệp (Life Coach). Đã và đang ứng dụng kiến thức, phương pháp của Học viện để đồng hành cùng mỗi cá nhân trên hành trình chuyển hóa nhận thức, khai mở nội lực và tối ưu hóa tiềm năng, giúp họ tạo dựng cuộc sống và sự nghiệp đúng với giá trị của chính mình."
     }
   ]
 }
