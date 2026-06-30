@@ -3,7 +3,14 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Plus, Trash2, Save, LogOut, ExternalLink, Upload, Loader2, Brain } from "lucide-react";
+import { Plus, Trash2, Save, LogOut, ExternalLink, Upload, Loader2, Brain, ChevronDown, Shield, User } from "lucide-react";
+
+interface SessionUser {
+  id: string;
+  username: string;
+  role: "admin" | "editor";
+  displayName: string;
+}
 
 interface Teacher {
   id: string;
@@ -99,6 +106,8 @@ export default function AdminDashboard() {
   const [data, setData] = useState<SiteData | null>(null);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<{ msg: string; ok: boolean } | null>(null);
+  const [currentUser, setCurrentUser] = useState<SessionUser | null>(null);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -106,6 +115,10 @@ export default function AdminDashboard() {
       .then((r) => r.json())
       .then(setData)
       .catch(() => router.push("/admin"));
+    fetch("/api/me")
+      .then((r) => r.json())
+      .then((u) => { if (u.username) setCurrentUser(u); })
+      .catch(() => {});
   }, [router]);
 
   const showToast = (msg: string, ok = true) => {
@@ -184,6 +197,41 @@ export default function AdminDashboard() {
           </div>
         </div>
 
+        {/* User menu */}
+        <div className="relative ml-auto mr-3" onMouseEnter={() => setUserMenuOpen(true)} onMouseLeave={() => setUserMenuOpen(false)}>
+          <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-lg transition-colors">
+            <div className="w-7 h-7 bg-[#9DBB82] rounded-full flex items-center justify-center">
+              <User size={14} className="text-[#1A3A2A]" />
+            </div>
+            <span className="text-sm font-medium">{currentUser?.displayName || "..."}</span>
+            <ChevronDown size={14} className="text-gray-400" />
+          </button>
+
+          {userMenuOpen && (
+            <div className="absolute right-0 top-full mt-1 w-56 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
+              <div className="px-4 py-3 border-b border-gray-100">
+                <p className="font-bold text-[#1A3A2A] text-sm">{currentUser?.displayName}</p>
+                <p className="text-xs text-gray-400 mt-0.5">@{currentUser?.username}</p>
+                <span className={`inline-flex items-center gap-1 mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                  currentUser?.role === "admin"
+                    ? "bg-[#1A3A2A] text-[#9DBB82]"
+                    : "bg-gray-100 text-gray-500"
+                }`}>
+                  <Shield size={10} />
+                  {currentUser?.role === "admin" ? "Quản trị viên" : "Biên tập viên"}
+                </span>
+              </div>
+              <button
+                onClick={logout}
+                className="w-full flex items-center gap-2 px-4 py-3 text-sm text-red-500 hover:bg-red-50 transition-colors"
+              >
+                <LogOut size={14} />
+                Đăng xuất
+              </button>
+            </div>
+          )}
+        </div>
+
         <div className="flex items-center gap-3">
           {toast && (
             <span
@@ -203,13 +251,6 @@ export default function AdminDashboard() {
           >
             {saving ? <Loader2 size={15} className="animate-spin" /> : <Save size={15} />}
             {saving ? "Đang lưu..." : "Lưu thay đổi"}
-          </button>
-          <button
-            onClick={logout}
-            className="flex items-center gap-2 border border-white/20 px-3 py-2 rounded-lg text-sm hover:bg-white/10 transition-colors"
-          >
-            <LogOut size={15} />
-            Đăng xuất
           </button>
         </div>
       </div>

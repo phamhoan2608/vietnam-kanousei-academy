@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Brain } from "lucide-react";
+import { Brain, Eye, EyeOff } from "lucide-react";
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -34,7 +35,6 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#F0F7EB] to-[#fff5f8] flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
-        {/* Header */}
         <div className="flex items-center gap-3 mb-8">
           <div className="w-12 h-12 bg-[#1A3A2A] rounded-xl flex items-center justify-center shadow-md">
             <Brain size={24} className="text-[#9DBB82]" />
@@ -63,15 +63,24 @@ export default function AdminLogin() {
 
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-gray-700">Mật khẩu</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#9DBB82] focus:border-transparent transition-all"
-              placeholder="••••••••"
-              required
-              autoComplete="current-password"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 pr-11 text-sm focus:outline-none focus:ring-2 focus:ring-[#9DBB82] focus:border-transparent transition-all"
+                placeholder="••••••••"
+                required
+                autoComplete="current-password"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1A3A2A] transition-colors"
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
           </div>
 
           {error && (

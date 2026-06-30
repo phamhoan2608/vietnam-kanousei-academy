@@ -12,7 +12,9 @@
       "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3005\" -UseBasicParsing)",
       "PowerShell(Get-NetTCPConnection -LocalPort 3000 | ForEach-Object { Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue | Select-Object Name, Id, @{Name='Port';Expression={3000}} })",
       "PowerShell(Get-Process node -ErrorAction SilentlyContinue)",
-      "PowerShell(Stop-Process -Force)"
+      "PowerShell(Stop-Process -Force)",
+      "WebFetch(domain:kanousei.academy)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
